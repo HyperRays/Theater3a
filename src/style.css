@@ -1,0 +1,419 @@
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Allerta Stencil", sans-serif;
+  --bg-color: rgba(20, 21, 26, 1);
+  font-weight: none;
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  font-weight: normal;
+}
+
+.text-container,
+.overlay-text {
+  font-size: 3.6rem;
+  color: rgb(130, 70, 50);
+  margin: 20px;
+}
+
+.overlay-text {
+  color: white;
+}
+
+.animate-overlay-text {
+  animation: neon 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes neon {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.7;
+  }
+  15% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.8;
+  }
+  49% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@supports (-webkit-text-stroke: 3px black) {
+  .overlay-text {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px;
+  }
+}
+.text-container > span {
+  display: inline-block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row-reverse;
+
+  background: rgba(30, 30, 33, 0.95);
+  border-bottom: solid rgba(30, 65, 120, 0.7) 1px;
+
+  z-index: 100;
+  top: 0;
+}
+
+.nav-child {
+  padding: 0px 17px;
+  transition: 0.95s ease;
+  display: block;
+  text-align: center;
+}
+
+.a:has(.nav-child) {
+  color: white;
+  text-decoration: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.navbar > div > h3 > a {
+  color: white;
+  text-decoration: none;
+  user-select: none;
+}
+
+.navbar > div:hover:not(.title) {
+  background: orangered;
+}
+
+.title {
+  color: #ffaa;
+}
+
+.opener {
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.img {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 50;
+
+  background-image: url("https://i.pinimg.com/originals/e4/30/39/e430393b8759ba345c2e2ccad8ffb582.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  mask-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg");
+
+  mask-size: 350px;
+  mask-repeat: no-repeat;
+  mask-position: 50% 50%;
+
+  opacity: 0;
+  background-color: rgb(200, 200, 200);
+  background-blend-mode: multiply;
+
+  animation: fadeIn 5s ease;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+.img:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(20, 21, 26, 1) 100%
+  );
+  height: 40%;
+}
+
+.cont {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  filter: invert(100%);
+  opacity: 0;
+  transition: 7s ease-in-out;
+}
+
+.cont-inner {
+  z-index: 2;
+  filter: invert(100%) drop-shadow(5px 5px 5px red) hue-rotate(35deg)
+    drop-shadow(5px 5px 5px red);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    mask-size: 0px;
+    transform: translate(calc(350px / 2), calc(350px / 2));
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.para-1,
+.para-2,
+.para-3 {
+  width: 100%;
+  height: 100%;
+  padding: 100px 0px;
+  --initial-color: #825012;
+  --final-color: #a82b13;
+  color: color-mix(in srgb, var(--final-color) 0%, var(--initial-color));
+}
+
+.text-contain {
+  width: min(max(300px, 50%), 470px);
+}
+
+.para-2 > .text-contain {
+  float: right;
+  text-align: right;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0px 100px 0px;
+  margin: 0px 30px;
+  font-size: 1.75em;
+}
+
+.anim {
+  animation: fadetranslate 0.75s cubic-bezier(0.91, 0.35, 0.28, 0.99);
+}
+
+.initial-state {
+  opacity: 0;
+}
+
+h1 > span {
+  display: inline-block;
+}
+
+@keyframes fadetranslate {
+  from {
+    opacity: 0;
+    translate: 0 -2.5em;
+  }
+  to {
+    opacity: 1;
+    translate: 0px 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Works on Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-color) rgb(60, 60, 63);
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--bg-color);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(60, 60, 63);
+    border-radius: 20px;
+  }
+}
+
+.footer {
+  font-size: 1em;
+  display: inline-grid;
+  width: 100%;
+  align-items: center;
+
+  background: rgba(30, 30, 33, 0.95);
+}
+
+@media only screen and (min-width: 700px) {
+  .footer {
+    grid-template-areas:
+      "email1 email1 tel tel insta"
+      "email2 email2 tel tel insta";
+  }
+}
+@media only screen and (max-width: 700px) {
+  .footer {
+    grid-template-areas:
+      "email1"
+      "email2"
+      "tel"
+      "insta";
+  }
+}
+
+.footer > div {
+  padding: 5px;
+  margin: 10px;
+  font-size: 1.176em;
+}
+
+.footer > div > a {
+  text-decoration: none;
+}
+
+#sch {
+  grid-area: email1;
+}
+
+#cl {
+  grid-area: email2;
+}
+
+#tel {
+  grid-area: tel;
+}
+
+#insta {
+  grid-area: insta;
+  transition: 0.5s ease;
+  filter: invert(100%);
+}
+
+#insta:hover {
+  filter: invert(80%);
+}
+
+#spacer {
+  grid-area: spacer;
+}
+
+.highlight {
+  color: #aa;
+  transition: 0.5s ease;
+}
+
+.highlight:hover {
+  color: #aabb;
+}
+
+.ref {
+  width: 100%;
+  text-align: center;
+  padding: 100px 0;
+  font-size: 1.75rem;
+  color: rgb(130, 70, 50);
+}
+
+.sponsoren {
+  width: 100%;
+  display: grid;
+  padding: 110px 0 0 0;
+  gap: 10px;
+}
+
+.sponsoren > * {
+  text-align: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 700px) {
+  .sponsoren {
+    grid-template-areas:
+      "txt txt txt txt txt"
+      "sp-1 sp-2 sp-3 sp-4 sp-5";
+  }
+}
+@media only screen and (max-width: 700px) {
+  .sponsoren {
+    grid-template-areas:
+      "txt txt"
+      "sp-1 sp-2"
+      "sp-3 sp-4"
+      "sp-5 sp-5";
+  }
+}
+
+#sp-text {
+  grid-area: txt;
+  font-size: 1.8em;
+}
+
+.sp {
+  padding: 10px;
+}
+
+#sp-1 {
+  grid-area: sp-1;
+}
+
+#sp-2 {
+  grid-area: sp-2;
+}
+
+#sp-3 {
+  grid-area: sp-3;
+}
+
+#sp-4 {
+  grid-area: sp-4;
+}
+
+#sp-5 {
+  grid-area: sp-5;
+}
