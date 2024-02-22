@@ -12,6 +12,12 @@
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -79,12 +85,6 @@ h7 {
 }
 .text-container > span {
   display: inline-block;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 .navbar {
