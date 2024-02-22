@@ -151,7 +151,7 @@ h7 {
   min-height: 100%;
   z-index: 50;
 
-  background-image: url("./bg.png");
+  background-image: url("./bg.webp");
 
   background-size: cover;
   background-repeat: no-repeat;
