@@ -120,7 +120,7 @@ if (!$.browser.mobile) {
   $(".scrollbar-hidden").css(
     "-ms-overflow-style",
     "none",
-    " scrollbar-width",
+    "scrollbar-width",
     "none"
   );
 
