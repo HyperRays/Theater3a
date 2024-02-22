@@ -231,6 +231,7 @@ h7 {
 
 .story {
   display: flex;
+  overflow-x: hidden;
   flex-direction: column;
   padding: 50px 0px 100px 0px;
   margin: 0px 30px;
