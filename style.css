@@ -89,7 +89,7 @@ h7 {
 
 .navbar {
   position: fixed;
-  width: 100%;
+  width: 100vw;
 
   display: flex;
   flex-direction: row-reverse;
