@@ -79,6 +79,9 @@ let show_text = () => {
   };
 
   let css_change = (elem, win, invert = false) => {
+    rel_height = ($(elem).height()/$(window).height());
+    p20 = $(window).height()*0.2;
+    console.log(rel_height);
     elem.css("opacity", limiter(win, opacity_fn));
     const shift = 100;
     let move_amount = -shift * (limiter(win, opacity_fn) - 1);
@@ -86,7 +89,7 @@ let show_text = () => {
       "transform",
       "translate(" + move_amount * (!invert ? 1 : -1) + "px, 18px)"
     );
-    elem.css("color","color-mix(in srgb, var(--final-color) "+ 100*limiter(win, (val) => {return Math.log2(val)+0.9;}) +"%, var(--initial-color))")
+    elem.css("color","color-mix(in srgb, var(--final-color) "+ 100*limiter(win, (val) => {val += rel_height+p20; return Math.log2(val)+0.9;}) +"%, var(--initial-color))")
   };
 
   let calc_win_dist = (elem) => {
