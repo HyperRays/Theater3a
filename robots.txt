@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://theater3a.com/sitemap.xml
