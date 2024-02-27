@@ -41,7 +41,9 @@ function set_maskpos() {
 
 $(document).ready(() => {
   
-
+  // karttext
+  let txt = $(".karttext")
+  $("#sp-1 > a > img").hover(() => {txt.css("opacity","1");}, () => {txt.css("opacity","0");});
   // Story anim
 
   let limiter = (val, fn) => {
@@ -66,7 +68,6 @@ $(document).ready(() => {
       );
 
       curr_pos = limiter(win, (val) => {
-        console.log(val);
         return val + 0.25 + rel_height;
       });
 

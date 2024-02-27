@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 :root {
   --bg-color: #00080f;
@@ -405,6 +406,14 @@ h1 > span {
 
 .sponsorimg:hover{
   filter: none;
+}
+
+.karttext{
+  opacity: 0;
+  color: #293582;
+  font-family: "Tajawal";
+  font-weight: 700;
+  transition: 0.2s ease;
 }
 
 @media only screen and (max-width: 700px) {
