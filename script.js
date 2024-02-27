@@ -19,7 +19,29 @@ $(".link-div").on("click", function () {
   return false;
 });
 
+let mouse_y = $(window).height() / 2 - 350 / 2;
+let mouse_x = $(window).width() / 2 - 350 / 2;
+let scroll = 0;
+let paralax = 200;
+
+function set_maskpos() {
+  $(".img").css(
+    "mask-position",
+    mouse_x + "px" + " " + (mouse_y + scroll) + "px"
+  );
+  $(".img").css(
+    "background-position",
+    ((0.5 * mouse_x) / $(window).height()) * paralax +
+      "px" +
+      " " +
+      ((0.5 * mouse_y) / $(window).width()) * paralax +
+      "px"
+  );
+}
+
 $(document).ready(() => {
+  
+
   // Story anim
 
   let limiter = (val, fn) => {
