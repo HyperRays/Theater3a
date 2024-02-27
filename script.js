@@ -51,7 +51,7 @@ $(document).ready(() => {
   };
 
   let show_text = () => {
-    let opacity_fn = (val) => {
+    let speed_fn = (val) => {
       return val;
     };
 
@@ -61,7 +61,7 @@ $(document).ready(() => {
       p20 = $(window).height() * 0.2;
       const shift = 100;
 
-      let move_amount = -shift * (limiter(win, opacity_fn) - 1);
+      let move_amount = -shift * (limiter(win, speed_fn) - 1);
       elem.css(
         "transform",
         "translate(" + move_amount * (!invert ? 1 : -1) + "px, 18px)"
@@ -71,7 +71,7 @@ $(document).ready(() => {
         return val + 0.25 + rel_height;
       });
 
-      elem.css("opacity", curr_pos);
+      elem.css("opacity", limiter(Math.pow(curr_pos,4), speed_fn));
 
       const sp = 20;
       elem.css(
